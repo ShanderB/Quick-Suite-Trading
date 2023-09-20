@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "clean": "npx --ignore-existing --quiet rimraf coverage/ dist/ node_modules/",
+    "start": "ng serve --disable-host-check --configuration=development",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
