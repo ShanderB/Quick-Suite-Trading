@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^13.3.11"
+    "@angular/cli": "^13.3.11",
+    "@angular/core": "^13.4.0"
   }
 }
