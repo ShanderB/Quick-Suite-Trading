@@ -1,8 +1,18 @@
-<mat-card>
-    <h2 mat-dialog-title>TESTE</h2>
-    <mat-dialog-content>
-    </mat-dialog-content>
-    <mat-dialog-actions>
-        <button class="mat-raised-button" mat-button mat-dialog-close (click)="fechar()">Fechar</button>
-    </mat-dialog-actions>
-</mat-card>
+<h2 mat-dialog-title>{{ data.Title }}</h2>
+<img src="{{data.Poster}}">
+
+<span>{{data.Country}}</span>
+<span>{{data.Director}}</span>
+<span>{{data.Genre}}</span>
+<span>{{data.Language}}</span>
+<span>{{data.Released}}</span>
+<span>{{data.Type}}</span>
+<span>{{data.Year}}</span>
+
+
+<mat-dialog-content>
+    <span>{{data.Plot}}</span>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button" mat-button mat-dialog-close (click)="fechar()">Fechar</button>
+</mat-dialog-actions>
