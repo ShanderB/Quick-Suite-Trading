@@ -1,7 +1,9 @@
 <input type="text" [formControl]="searchControl">
 
 <ul>
-  <li *ngFor="let filmes of filmes$ | async">
-    {{ filmes.Title }}
+  <li *ngFor="let filme of filmes$ | async">
+    <div mat-raised-button (click)="onFilmeSelecionado(filme)">
+      {{ filme.Title }}
+    </div>
   </li>
 </ul>

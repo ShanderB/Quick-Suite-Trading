@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Sanitizer } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
 import { FilmeService } from './filme.service';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { FilmeAPI } from './models/filmeAPI';
+import { FilmeResponse } from './models/filmeResponse';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 
 @Component({
@@ -20,7 +22,7 @@ export class AppComponent {
 
   constructor(
     private filmeService: FilmeService,
-    public dialog: MatDialog
+    private dialog: MatDialog
   ) { }
 
   ngOnDestroy(): void {
@@ -37,7 +39,19 @@ export class AppComponent {
         ),
         map((res: any) => res.Search)
       );
+  }
 
+  onFilmeSelecionado(filme: FilmeAPI) {
+    this.filmeService.fetchFilmePorId(filme.imdbID).subscribe((item: FilmeResponse) => {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.height = '400px'
+      dialogConfig.width = '600px'
+      dialogConfig.data = item
+      this.dialog.open(ModalComponent, dialogConfig);
+
+      
+      // this.filmeSelecionado$ = 
+    });
   }
 
 }
