@@ -1,12 +1,12 @@
-import { Component, Sanitizer } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
+import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 
 import { FilmeService } from './filme.service';
-import { FilmeAPI } from './models/filmeAPI';
+import { FilmeAPI, FilmeLista } from './models/filmeAPI';
 import { FilmeResponse } from './models/filmeResponse';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 
 @Component({
@@ -16,8 +16,7 @@ import { ModalComponent } from './modal/modal.component';
 })
 export class AppComponent {
   searchControl: FormControl = new FormControl();
-  filmes$: Observable<any[]> = new Observable();
-  filmeSelecionado$: Observable<any> = new Observable();
+  filmes$: Observable<FilmeAPI[]> = new Observable();
   private readonly unsubscribe$ = new Subject<void>();
 
   constructor(
@@ -30,28 +29,23 @@ export class AppComponent {
     this.unsubscribe$.complete();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.filmes$ = this.searchControl.valueChanges
       .pipe(
         takeUntil(this.unsubscribe$),
-        switchMap(
-          filmeNome => this.filmeService.fetchListaFilmesPorNome(filmeNome)
-        ),
-        map((res: any) => res.Search)
+        switchMap((filmeNome: string) => this.filmeService.fetchListaFilmesPorNome(filmeNome)),
+        map((res: FilmeLista) => res?.Search?.filter(filme => filme?.Poster != "N/A"))
       );
   }
 
-  onFilmeSelecionado(filme: FilmeAPI) {
-    this.filmeService.fetchFilmePorId(filme.imdbID).subscribe((item: FilmeResponse) => {
-      const dialogConfig = new MatDialogConfig();
-      dialogConfig.height = '400px'
-      dialogConfig.width = '600px'
-      dialogConfig.data = item
-      this.dialog.open(ModalComponent, dialogConfig);
-
-      
-      // this.filmeSelecionado$ = 
-    });
+  onFilmeSelecionado(filme: FilmeAPI): void {
+    this.filmeService
+      .fetchFilmePorId(filme.imdbID)
+      .pipe(first())
+      .subscribe((item: FilmeResponse) => {
+        this.dialog.open(ModalComponent, {
+          data: item
+        });
+      });
   }
-
 }
