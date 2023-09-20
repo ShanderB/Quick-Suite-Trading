@@ -1,9 +1,15 @@
 <input type="text" [formControl]="searchControl">
 
-<ul>
-  <li *ngFor="let filme of filmes$ | async">
-    <div mat-raised-button (click)="onFilmeSelecionado(filme)">
-      {{ filme.Title }}
-    </div>
-  </li>
-</ul>
+<span style="display: flex;
+flex-wrap: wrap;
+place-content: flex-start;
+justify-content: center;">
+  <mat-card *ngFor="let filme of filmes$ | async" mat-raised-button (click)="onFilmeSelecionado(filme)" style="flex-shrink: 1; overflow: hidden; margin: 2%; max-width: 30%;">
+    <mat-card-header>
+      <mat-card-title>{{ filme.Title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-subtitle>
+      <img src="{{ filme.Poster }}">
+    </mat-card-subtitle>
+  </mat-card>
+</span>
