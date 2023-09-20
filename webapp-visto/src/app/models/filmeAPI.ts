@@ -5,4 +5,8 @@ export interface FilmeAPI {
   Year: string,
   imdbID: string,
 }
-  
+
+export interface FilmeLista extends Object{
+  Search: FilmeAPI[],
+  totalResults: string;
+}
