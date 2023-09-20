@@ -2,6 +2,7 @@
 
 - Node 16.15.0
 - Nvm 1.1.11
+- Npm 8.5.5
 
 
 ## Como rodar o projeto?
