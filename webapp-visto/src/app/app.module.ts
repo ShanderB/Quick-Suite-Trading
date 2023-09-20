@@ -8,15 +8,26 @@ import { FilmeService } from './filme.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
+import { ModalComponent } from './modal/modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
+    MatDialogModule,
+    MatButtonModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MatDialogModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [FilmeService],
   bootstrap: [AppComponent]
