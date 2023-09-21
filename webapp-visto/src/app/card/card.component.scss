@@ -1,0 +1,20 @@
+.display-flex-card {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: flex-start;
+    justify-content: center;
+}
+
+.cards {
+    flex-shrink: 1;
+    overflow: hidden;
+    margin: 2%;
+    max-width: 30%;
+}
+
+.display-movie-card-poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 12px 8px 22px black
+}

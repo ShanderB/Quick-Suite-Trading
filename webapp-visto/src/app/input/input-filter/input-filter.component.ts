@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { FilmeService } from 'src/app/filme.service';
 import { FilmesTipos } from 'src/app/models/filmesTipos';
 
 @Component({
@@ -9,11 +10,19 @@ import { FilmesTipos } from 'src/app/models/filmesTipos';
 })
 export class InputFilterComponent implements OnInit {
   @Input() filterControl: FormControl = new FormControl();
+  @Input() searchControl: FormControl = new FormControl();
   tipos = FilmesTipos;
 
-  constructor() { }
+  constructor(
+    private filmeService: FilmeService
+  ) { }
 
   ngOnInit(): void {
+    this.filterControl.valueChanges.subscribe(
+      (tipo: string) => { 
+        this.filmeService.filter = tipo;
+        this.searchControl.enable();
+      }
+    )
   }
-
 }

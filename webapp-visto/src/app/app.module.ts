@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { InputSearchComponent } from './input/input-search/input-search.component';
 import { InputFilterComponent } from './input/input-filter/input-filter.component';
+import { CardComponent } from './card/card.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { InputFilterComponent } from './input/input-filter/input-filter.componen
     AppComponent,
     ModalComponent,
     InputSearchComponent,
-    InputFilterComponent
+    InputFilterComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

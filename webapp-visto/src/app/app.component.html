@@ -1,16 +1,5 @@
 <ng-container>
-
   <app-input-search [searchControl]="searchControl" [displayClear]="!!filmes$"></app-input-search>
-  <app-input-filter [filterControl]="filterControl"></app-input-filter>
-
-  <span class="display-flex-card">
-    <mat-card class="cards display-movie-card-poster" *ngFor="let filme of filmes$ | async" mat-raised-button (click)="onFilmeSelecionado(filme)">
-      <mat-card-header>
-        <mat-card-title>{{ filme.Title }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-subtitle>
-        <img src="{{ filme.Poster }}">
-      </mat-card-subtitle>
-    </mat-card>
-  </span>
+  <app-input-filter [searchControl]="searchControl" [filterControl]="filterControl"></app-input-filter>
+  <app-card [searchControl]="searchControl"></app-card>
 </ng-container>
