@@ -8,6 +8,10 @@
 ## Como rodar o projeto?
 Tenha certeza de que está utilizando as versões corretas.
 
+Entre no diretório do webapp
+
+    cd webapp-visto
+
 Basta instalar o projeto:
 
     npm i
