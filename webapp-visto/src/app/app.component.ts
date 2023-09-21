@@ -48,4 +48,8 @@ export class AppComponent {
         });
       });
   }
+
+  clearSearch() {
+    this.searchControl.patchValue("");
+  }
 }
