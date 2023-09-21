@@ -1,3 +1,28 @@
 .imagem {
     float: left;
 }
+
+.modal-title {
+    align-self: center;
+}
+
+.modal-content {
+    justify-items: center;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.modal-subtitle {
+    font-size: x-small;
+    margin-top: 1%;
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    span {
+        padding: 1%;
+    }
+}

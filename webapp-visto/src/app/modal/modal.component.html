@@ -1,21 +1,20 @@
-<ng-container>
-    <h2 mat-dialog-title>{{ data.Title }}</h2>
+<div class="modal-content">
+    <h2 mat-dialog-title class="modal-title">{{ data.Title }}</h2>
     <img src="{{data.Poster}}" class="imagem">
 
-    <mat-card-subtitle>
-        <span>{{data.Country}}</span>
-        <span>{{data.Director}}</span>
-        <span>{{data.Genre}}</span>
-        <span>{{data.Language}}</span>
-        <span>{{data.Released}}</span>
-        <span>{{data.Type}}</span>
-        <span>{{data.Year}}</span>
+    <mat-card-subtitle class="modal-subtitle">
+        <span>País: {{data.Country}}</span>
+        <span>Diretor: {{data.Director}}</span>
+        <span>Gênero: {{data.Genre}}</span>
+        <span>Língua: {{data.Language}}</span>
+        <span>Tipo: {{data.Type}}</span>
+        <span>Ano de Lançamento: {{data.Year}}</span>
     </mat-card-subtitle>
 
-    <mat-dialog-content>
+    <mat-dialog-content style="">
         <span>{{data.Plot}}</span>
     </mat-dialog-content>
     <mat-dialog-actions>
         <button class="mat-raised-button" mat-button mat-dialog-close (click)="fechar()">Fechar</button>
     </mat-dialog-actions>
-</ng-container>
+</div>

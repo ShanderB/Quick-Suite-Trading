@@ -7,8 +7,7 @@
 
 .display-flex-input {
     display: flex;
-    max-width: 60%;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .cards {
@@ -16,4 +15,10 @@
     overflow: hidden;
     margin: 2%;
     max-width: 30%;
+}
+
+.display-movie-card-poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
