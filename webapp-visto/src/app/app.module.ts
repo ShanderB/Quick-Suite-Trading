@@ -18,13 +18,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { InputSearchComponent } from './input/input-search/input-search.component';
+import { InputFilterComponent } from './input/input-filter/input-filter.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
-    InputSearchComponent
+    InputSearchComponent,
+    InputFilterComponent
   ],
   imports: [
     BrowserModule,

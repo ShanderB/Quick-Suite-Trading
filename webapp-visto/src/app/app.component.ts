@@ -8,7 +8,6 @@ import { FilmeAPI, FilmeLista } from './models/filmeAPI';
 import { FilmeResponse } from './models/filmeResponse';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
-import { FilmesTipos } from './models/filmesTipos';
 
 @Component({
   selector: 'my-app',
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
   filterControl: FormControl = new FormControl();
   filmes$: Observable<FilmeAPI[]> = new Subject();
   private readonly unsubscribe$ = new Subject<void>();
-  tipos = FilmesTipos;
 
   constructor(
     private filmeService: FilmeService,
