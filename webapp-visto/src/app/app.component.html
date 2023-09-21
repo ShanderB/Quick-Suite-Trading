@@ -7,6 +7,15 @@
   </mat-form-field>
 
 
+  <mat-form-field class="display-flex-input">
+    <mat-label>Select</mat-label>
+    <mat-select [formControl]="filterControl">
+      <mat-option *ngFor="let tipo of tipos | keyvalue" [value]="tipo.value">
+        {{tipo.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <span class="display-flex-card">
     <mat-card class="cards display-movie-card-poster" *ngFor="let filme of filmes$ | async" mat-raised-button (click)="onFilmeSelecionado(filme)">
       <mat-card-header>

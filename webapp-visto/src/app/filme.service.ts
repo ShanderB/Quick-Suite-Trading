@@ -9,15 +9,21 @@ import { FilmeLista } from './models/filmeAPI';
   providedIn: 'root'
 })
 export class FilmeService {
-  url: string = environment.URL + environment.apiKey
+  private url: string = environment.URL + environment.apiKey;
+  private _filter: string = '';
 
+  public set filter(value: string) {
+    this._filter = value;
+  }
   constructor(private http: HttpClient) { }
 
   fetchListaFilmesPorNome(nomeFilme: string) {
-    return this.http.get<FilmeLista>(`${this.url}&s=${nomeFilme}`);
+    return this.http.get<FilmeLista>(`${this.url}&s=${nomeFilme}${this._filter?'&type='+this._filter:''}`);
   }
 
   fetchFilmePorId(filmeId: string): Observable<FilmeResponse>{
     return this.http.get<FilmeResponse>(`${this.url}&i=${filmeId}`);
   }
+
+
 }
