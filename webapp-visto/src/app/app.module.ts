@@ -13,6 +13,9 @@ import { MatCardModule } from '@angular/material/card';
 import { ModalComponent } from './modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
