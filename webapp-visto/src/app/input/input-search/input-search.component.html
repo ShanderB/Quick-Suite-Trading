@@ -1,0 +1,6 @@
+<mat-form-field class="display-flex-input">
+    <input matInput [formControl]="searchControl">
+    <button *ngIf="displayClear" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>

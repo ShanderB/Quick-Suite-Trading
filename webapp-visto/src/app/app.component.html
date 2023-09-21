@@ -1,10 +1,12 @@
 <ng-container>
-  <mat-form-field class="display-flex-input">
+<!--   <mat-form-field class="display-flex-input">
     <input matInput [formControl]="searchControl">
     <button *ngIf="filmes$" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
       <mat-icon>close</mat-icon>
     </button>
-  </mat-form-field>
+  </mat-form-field> -->
+
+  <app-input-search [searchControl]="searchControl" [displayClear]="!!filmes$"></app-input-search>
 
 
   <mat-form-field class="display-flex-input">

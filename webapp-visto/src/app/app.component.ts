@@ -66,8 +66,4 @@ export class AppComponent implements OnInit, OnDestroy {
         });
       });
   }
-
-  clearSearch() {
-    this.searchControl.patchValue("");
-  }
 }
