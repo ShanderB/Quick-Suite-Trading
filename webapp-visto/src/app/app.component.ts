@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { first, map, switchMap, takeUntil } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
@@ -14,7 +14,7 @@ import { ModalComponent } from './modal/modal.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   searchControl: FormControl = new FormControl();
   filmes$: Observable<FilmeAPI[]> = new Observable();
   private readonly unsubscribe$ = new Subject<void>();
@@ -36,6 +36,8 @@ export class AppComponent {
         switchMap((filmeNome: string) => this.filmeService.fetchListaFilmesPorNome(filmeNome)),
         map((res: FilmeLista) => res?.Search?.filter(filme => filme?.Poster != "N/A"))
       );
+    this.searchControl.patchValue("test");
+
   }
 
   onFilmeSelecionado(filme: FilmeAPI): void {

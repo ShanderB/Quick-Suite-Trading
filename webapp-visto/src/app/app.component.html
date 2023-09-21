@@ -1,7 +1,5 @@
 <ng-container>
-  <mat-form-field style="display: flex;
-  max-width: 60%;
-  justify-content: flex-end;">
+  <mat-form-field class="display-flex-input">
     <input matInput [formControl]="searchControl">
     <button *ngIf="filmes$" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
       <mat-icon>close</mat-icon>
@@ -9,12 +7,8 @@
   </mat-form-field>
 
 
-  <span style="display: flex;
-flex-wrap: wrap;
-place-content: flex-start;
-justify-content: center;">
-    <mat-card *ngFor="let filme of filmes$ | async" mat-raised-button (click)="onFilmeSelecionado(filme)"
-      style="flex-shrink: 1; overflow: hidden; margin: 2%; max-width: 30%;">
+  <span class="display-flex-card">
+    <mat-card class="cards" *ngFor="let filme of filmes$ | async" mat-raised-button (click)="onFilmeSelecionado(filme)">
       <mat-card-header>
         <mat-card-title>{{ filme.Title }}</mat-card-title>
       </mat-card-header>
