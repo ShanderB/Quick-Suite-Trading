@@ -23,6 +23,10 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    /* Ao iniciar, ficará olhando o searchBox de título.
+       Quando for escrito algo, fará o request puxando os filmes.
+       Estou filtrando para remover todos os filmes sem poster para não deixar os cards brancos,
+       ou ficar quebrando o código.*/
     this.filmes$ = this.searchControl.valueChanges
       .pipe(
         takeUntil(this.unsubscribe$),
@@ -31,6 +35,8 @@ export class CardComponent implements OnInit {
       ); 
   }
 
+  /* Ao clicar no card, é feito o request para abrir
+     a modal contendo os dados do filme.*/
   onFilmeSelecionado(filme: FilmeAPI): void {
     this.filmeService
       .fetchFilmePorId(filme.imdbID)

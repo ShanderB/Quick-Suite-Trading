@@ -24,11 +24,5 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    //! REMOVER ISSO. USADO APENAS PARA EVITAR FICAR ESCREVENDO
-    //!
-    //!
-    //!
-    //!
-    this.searchControl.patchValue("test");
   }
 }
