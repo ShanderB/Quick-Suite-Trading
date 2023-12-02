@@ -109,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "webapp-visto"
+  "cli": {
+    "analytics": "2a7bae08-e8b8-41be-a6b6-33cbe6ea1ff8"
+  }
 }
