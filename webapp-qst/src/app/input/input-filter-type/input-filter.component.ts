@@ -22,7 +22,7 @@ export class InputFilterComponent implements OnInit {
     Caso seja alterado o tipo da mídia, emite um evento para que possa fazer o request baseado nos filtros de título e tipo. */
     this.filterControl.valueChanges.subscribe(
       (tipo: string) => { 
-        this.filmeService.filter = tipo;
+        this.filmeService.filterType = tipo;
         this.searchControl.enable();
       }
     )

@@ -30,7 +30,7 @@ export class CardComponent implements OnInit {
     this.filmes$ = this.searchControl.valueChanges
       .pipe(
         takeUntil(this.unsubscribe$),
-        switchMap((filmeNome: string) => this.filmeService.fetchListaFilmesPorNome(filmeNome)),
+        switchMap((filmeNome: string) => this.filmeService.fetchMovieListByName(filmeNome)),
         map((res: FilmeLista) => res?.Search?.filter(filme => filme?.Poster != "N/A"))
       ); 
   }
@@ -39,7 +39,7 @@ export class CardComponent implements OnInit {
      a modal contendo os dados do filme.*/
   onFilmeSelecionado(filme: FilmeAPI): void {
     this.filmeService
-      .fetchFilmePorId(filme.imdbID)
+      .fetchMovieById(filme.imdbID)
       .pipe(first())
       .subscribe((item: FilmeResponse) => {
         this.dialog.open(ModalComponent, {

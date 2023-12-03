@@ -1,1 +1,11 @@
-<p>input-filter-year works!</p>
+<mat-form-field class="display-flex-input">
+    <mat-label>Select</mat-label>
+
+    <mat-label>Input</mat-label>
+    <input matInput [formControl]="filterControl" (change)="handleSelection($event)">
+   <!--  <mat-select [formControl]="filterControl">
+        <mat-option *ngFor="let tipo of tipos | keyvalue" [value]="tipo.value" (onSelectionChange)="handleSelection($event)">
+            {{tipo.value}}
+        </mat-option>
+    </mat-select> -->
+</mat-form-field>

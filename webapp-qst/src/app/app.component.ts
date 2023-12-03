@@ -11,7 +11,8 @@ import { FilmeAPI } from './models/filmeAPI';
 })
 export class AppComponent implements OnInit, OnDestroy {
   searchControl: FormControl = new FormControl();
-  filterControl: FormControl = new FormControl();
+  filterTypeControl: FormControl = new FormControl();
+  filterYearControl: FormControl = new FormControl();
   filmes$: Observable<FilmeAPI[]> = new Subject();
   private readonly unsubscribe$ = new Subject<void>();
 
