@@ -1,25 +1,25 @@
-## Ferramentas utilizadas!
+## Tools used!
 
 - Node 16.15.0
 - Nvm 1.1.11
 - Npm 8.5.5
 
 
-## Como rodar o projeto?
-Tenha certeza de que está utilizando as versões corretas.
+## How to run the project?
+Make sure you are using the correct versions.
 
-Entre no diretório do webapp
+Enter the webapp directory
 
-    cd webapp-visto
+    cd webapp-viso
 
-Basta instalar o projeto:
+Just install the project:
 
-    npm i
+    npm me
 
-Após finalizado, inicie o serviço:
+Once finished, start the service:
 
-    npm start
+    npm home
 
-O projeto irá iniciar no link:
+The project will start at the link:
 
     http://localhost:4200/
