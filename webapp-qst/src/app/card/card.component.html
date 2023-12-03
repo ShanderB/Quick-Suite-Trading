@@ -1,10 +1,10 @@
 <span class="display-flex-card">
-    <mat-card class="cards display-movie-card-poster" *ngFor="let filme of filmes$ | async" mat-raised-button (click)="onFilmeSelecionado(filme)">
+    <mat-card class="cards display-movie-card-poster" *ngFor="let movie of movies$ | async" mat-raised-button (click)="onMovieSelected(movie)">
       <mat-card-header>
-        <mat-card-title>{{ filme.Title }}</mat-card-title>
+        <mat-card-title>{{ movie.Title }}</mat-card-title>
       </mat-card-header>
       <mat-card-subtitle>
-        <img src="{{ filme.Poster }}">
+        <img src="{{ movie.Poster }}">
       </mat-card-subtitle>
     </mat-card>
   </span>

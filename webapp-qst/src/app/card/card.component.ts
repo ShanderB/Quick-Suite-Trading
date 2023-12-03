@@ -13,12 +13,12 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  filmes$: Observable<MovieAPI[]> = new Subject();
+  movies$: Observable<MovieAPI[]> = new Subject();
   @Input() searchControl: FormControl = new FormControl();
   private readonly unsubscribe$ = new Subject<void>();
 
   constructor(
-    private filmeService: MovieService,
+    private movieService: MovieService,
     private dialog: MatDialog
   ) { }
 
@@ -27,19 +27,19 @@ export class CardComponent implements OnInit {
        Quando for escrito algo, fará o request puxando os filmes.
        Estou filtrando para remover todos os filmes sem poster para não deixar os cards brancos,
        ou ficar quebrando o código.*/
-    this.filmes$ = this.searchControl.valueChanges
+    this.movies$ = this.searchControl.valueChanges
       .pipe(
         takeUntil(this.unsubscribe$),
-        switchMap((movieName: string) => this.filmeService.fetchMovieListByName(movieName)),
+        switchMap((movieName: string) => this.movieService.fetchMovieListByName(movieName)),
         map((res: MovieList) => res?.Search?.filter(movieName => movieName?.Poster != "N/A"))
       ); 
   }
 
   /* Ao clicar no card, é feito o request para abrir
      a modal contendo os dados do filme.*/
-  onFilmeSelecionado(filme: MovieAPI): void {
-    this.filmeService
-      .fetchMovieById(filme.imdbID)
+  onMovieSelected(movie: MovieAPI): void {
+    this.movieService
+      .fetchMovieById(movie.imdbID)
       .pipe(first())
       .subscribe((item: MovieResponse) => {
         this.dialog.open(ModalComponent, {

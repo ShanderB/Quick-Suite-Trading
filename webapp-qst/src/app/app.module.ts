@@ -20,7 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { InputSearchComponent } from './input/input-search/input-search.component';
 import { InputFilterComponent } from './input/input-filter-type/input-filter.component';
 import { CardComponent } from './card/card.component';
-import { InputFilterYearComponent } from './input-filter-year/input-filter-year.component';
+import { InputFilterYearComponent } from './input/input-filter-year/input-filter-year.component';
 
 
 @NgModule({
