@@ -28,18 +28,18 @@ export class MovieService {
     return this.http.get<MovieList>(this.createFetchUrl(movieName));
   }
 
-  fetchMovieById(movieId: string): Observable<MovieResponse>{
+  fetchMovieById(movieId: string): Observable<MovieResponse> {
     return this.http.get<MovieResponse>(`${this.url}&i=${movieId}`);
   }
-  
-  private createFetchUrl(movieName: string): string{
+
+  private createFetchUrl(movieName: string): string {
     let urlQuery: string = `${this.url}&s=${movieName}`;
 
-    if(this._filterType){
-      urlQuery += ('&type='+ this._filterType)
+    if (this._filterType) {
+      urlQuery += ('&type=' + this._filterType)
     }
-    if(this._filterYear){
-      urlQuery += ('&y='+ this._filterYear)
+    if (this._filterYear) {
+      urlQuery += ('&y=' + this._filterYear)
     }
 
     return urlQuery;
