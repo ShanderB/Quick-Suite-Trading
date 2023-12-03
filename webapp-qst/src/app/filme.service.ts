@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
-import { FilmeResponse } from './models/filmeResponse';
 import { Observable } from 'rxjs/internal/Observable';
-import { FilmeLista } from './models/filmeAPI';
+
+import { environment } from '../environments/environment';
+import { MovieResponse } from './models/filmeResponse';
+import { MovieList } from './models/filmeAPI';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +25,11 @@ export class MovieService {
   constructor(private http: HttpClient) { }
 
   fetchMovieListByName(nomeFilme: string) {
-    return this.http.get<FilmeLista>(this.createFetchUrl(nomeFilme));
+    return this.http.get<MovieList>(this.createFetchUrl(nomeFilme));
   }
 
-  fetchMovieById(filmeId: string): Observable<FilmeResponse>{
-    return this.http.get<FilmeResponse>(`${this.url}&i=${filmeId}`);
+  fetchMovieById(filmeId: string): Observable<MovieResponse>{
+    return this.http.get<MovieResponse>(`${this.url}&i=${filmeId}`);
   }
   
   private createFetchUrl(nomeFilme: string): string{
@@ -40,7 +41,6 @@ export class MovieService {
     if(this._filterYear){
       urlQuery += ('&y='+ this._filterYear)
     }
-    console.log(urlQuery)
     return urlQuery;
   }
 }

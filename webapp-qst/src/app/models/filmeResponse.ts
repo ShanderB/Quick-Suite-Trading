@@ -1,4 +1,4 @@
-export interface FilmeResponse {
+export interface MovieResponse {
     Actors: string,
     Awards: string,
     Country: string,

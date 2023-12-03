@@ -1,4 +1,4 @@
-export interface FilmeAPI {
+export interface MovieAPI {
   Poster: string,
   Title: string,
   Type: string,
@@ -6,7 +6,7 @@ export interface FilmeAPI {
   imdbID: string,
 }
 
-export interface FilmeLista extends Object{
-  Search: FilmeAPI[],
+export interface MovieList extends Object{
+  Search: MovieAPI[],
   totalResults: string;
 }

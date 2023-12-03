@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subject, first, map, switchMap, takeUntil } from 'rxjs';
-import { FilmeAPI, FilmeLista } from '../models/filmeAPI';
+import { MovieAPI, MovieList } from '../models/filmeAPI';
 import { MovieService } from '../filme.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { FilmeResponse } from '../models/filmeResponse';
+import { MovieResponse } from '../models/filmeResponse';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -13,7 +13,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  filmes$: Observable<FilmeAPI[]> = new Subject();
+  filmes$: Observable<MovieAPI[]> = new Subject();
   @Input() searchControl: FormControl = new FormControl();
   private readonly unsubscribe$ = new Subject<void>();
 
@@ -30,18 +30,18 @@ export class CardComponent implements OnInit {
     this.filmes$ = this.searchControl.valueChanges
       .pipe(
         takeUntil(this.unsubscribe$),
-        switchMap((filmeNome: string) => this.filmeService.fetchMovieListByName(filmeNome)),
-        map((res: FilmeLista) => res?.Search?.filter(filme => filme?.Poster != "N/A"))
+        switchMap((movieName: string) => this.filmeService.fetchMovieListByName(movieName)),
+        map((res: MovieList) => res?.Search?.filter(movieName => movieName?.Poster != "N/A"))
       ); 
   }
 
   /* Ao clicar no card, é feito o request para abrir
      a modal contendo os dados do filme.*/
-  onFilmeSelecionado(filme: FilmeAPI): void {
+  onFilmeSelecionado(filme: MovieAPI): void {
     this.filmeService
       .fetchMovieById(filme.imdbID)
       .pipe(first())
-      .subscribe((item: FilmeResponse) => {
+      .subscribe((item: MovieResponse) => {
         this.dialog.open(ModalComponent, {
           data: item
         });
