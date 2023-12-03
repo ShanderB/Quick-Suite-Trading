@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { FilmeService } from './filme.service';
+import { MovieService } from './filme.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -46,7 +46,7 @@ import { InputFilterYearComponent } from './input-filter-year/input-filter-year.
     BrowserAnimationsModule,
     MatSelectModule
   ],
-  providers: [FilmeService],
+  providers: [MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

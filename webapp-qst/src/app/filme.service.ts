@@ -8,7 +8,7 @@ import { FilmeLista } from './models/filmeAPI';
 @Injectable({
   providedIn: 'root'
 })
-export class FilmeService {
+export class MovieService {
   private url: string = environment.URL + environment.apiKey;
   private _filterType: string = '';
   private _filterYear: string = '';
@@ -20,12 +20,13 @@ export class FilmeService {
   public set filterYear(value: string) {
     this._filterYear = value;
   }
+
   constructor(private http: HttpClient) { }
 
   fetchMovieListByName(nomeFilme: string) {
     return this.http.get<FilmeLista>(this.createFetchUrl(nomeFilme));
   }
-  
+
   fetchMovieById(filmeId: string): Observable<FilmeResponse>{
     return this.http.get<FilmeResponse>(`${this.url}&i=${filmeId}`);
   }

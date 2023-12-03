@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FilmeService } from 'src/app/filme.service';
+import { MovieService } from 'src/app/filme.service';
 import { FilmesTipos } from 'src/app/models/filmesTipos';
 
 @Component({
@@ -14,7 +14,7 @@ export class InputFilterComponent implements OnInit {
   tipos = FilmesTipos;
 
   constructor(
-    private filmeService: FilmeService
+    private filmeService: MovieService
   ) { }
 
   ngOnInit(): void {

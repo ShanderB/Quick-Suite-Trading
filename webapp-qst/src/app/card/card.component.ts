@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subject, first, map, switchMap, takeUntil } from 'rxjs';
 import { FilmeAPI, FilmeLista } from '../models/filmeAPI';
-import { FilmeService } from '../filme.service';
+import { MovieService } from '../filme.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { FilmeResponse } from '../models/filmeResponse';
@@ -18,7 +18,7 @@ export class CardComponent implements OnInit {
   private readonly unsubscribe$ = new Subject<void>();
 
   constructor(
-    private filmeService: FilmeService,
+    private filmeService: MovieService,
     private dialog: MatDialog
   ) { }
 

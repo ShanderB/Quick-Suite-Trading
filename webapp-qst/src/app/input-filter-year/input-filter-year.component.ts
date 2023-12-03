@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { FilmeService } from '../filme.service';
+import { MovieService } from '../filme.service';
 import { FormControl } from '@angular/forms';
 import { FilmesTipos } from '../models/filmesTipos';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-input-filter-year',
@@ -15,7 +14,7 @@ export class InputFilterYearComponent {
   tipos = FilmesTipos;
 
   constructor(
-    private filmeService: FilmeService
+    private filmeService: MovieService
   ) { }
 
   ngOnInit(): void {
