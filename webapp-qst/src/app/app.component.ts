@@ -9,7 +9,7 @@ import { MovieAPI } from './models/movieAPI';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnDestroy {
   searchControl: FormControl = new FormControl();
   filterTypeControl: FormControl = new FormControl();
   filterYearControl: FormControl = new FormControl();
@@ -24,6 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  ngOnInit(): void {
+  openWatchList(){
+    console.log('a')
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MovieResponse } from '../models/movieResponse';
+import { MovieResponse } from '../../models/movieResponse';
 
 @Component({
   selector: 'app-modal',
