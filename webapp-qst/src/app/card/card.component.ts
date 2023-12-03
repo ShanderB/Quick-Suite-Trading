@@ -7,6 +7,7 @@ import { ModalComponent } from '../modal/movie-info/movie-info.component';
 import { MovieResponse } from '../models/movieResponse';
 import { FormControl } from '@angular/forms';
 import { StorageService } from '../services/storage/storage.service';
+import { StorageKey } from '../constants/constants';
 
 @Component({
   selector: 'app-card',
@@ -25,11 +26,6 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.storage.clear()
-    /* Ao iniciar, ficará olhando o searchBox de título.
-       Quando for escrito algo, fará o request puxando os filmes.
-       Estou filtrando para remover todos os filmes sem poster para não deixar os cards brancos,
-       ou ficar quebrando o código.*/
     this.movies$ = this.searchControl.valueChanges
       .pipe(
         takeUntil(this.unsubscribe$),
@@ -38,8 +34,6 @@ export class CardComponent implements OnInit {
       );
   }
 
-  /* Ao clicar no card, é feito o request para abrir
-     a modal contendo os dados do filme.*/
   onMovieSelected(movie: MovieAPI): void {
     this.movieService
       .fetchMovieById(movie.imdbID)
@@ -52,17 +46,17 @@ export class CardComponent implements OnInit {
   }
 
   onClickWatchList(movieId: MovieAPI): void {
-    let actualStorage = this.storage.get('watchList');
+    let actualStorage = this.storage.get(StorageKey);
 
-    if(!actualStorage.find((storedMovieId: any) => storedMovieId.imdbID == movieId.imdbID)){
-      this.storage.set('watchList', [...actualStorage, movieId])
+    if (!actualStorage.find((storedMovieId: any) => storedMovieId.imdbID == movieId.imdbID)) {
+      this.storage.set(StorageKey, [...actualStorage, movieId])
     } else {
-      this.storage.set('watchList', actualStorage.filter((item: any)=> item.imdbID != movieId.imdbID))
+      this.storage.set(StorageKey, actualStorage.filter((item: any) => item.imdbID != movieId.imdbID))
     }
   }
 
   isOnWatchlist(movieId: MovieAPI): boolean {
-    if(!this.storage.get('watchList').find((storedMovieId: any) => storedMovieId.imdbID == movieId.imdbID)) return false;
+    if (!this.storage.get(StorageKey).find((storedMovieId: any) => storedMovieId.imdbID == movieId.imdbID)) return false;
     return true;
   }
 }
