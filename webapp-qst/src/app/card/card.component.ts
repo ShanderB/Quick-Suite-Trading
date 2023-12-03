@@ -3,7 +3,7 @@ import { Observable, Subject, first, map, switchMap, takeUntil } from 'rxjs';
 import { MovieAPI, MovieList } from '../models/movieAPI';
 import { MovieService } from '../services/movie/movie.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalComponent } from '../modal/movie-info/modal.component';
+import { ModalComponent } from '../modal/movie-info/movie-info.component';
 import { MovieResponse } from '../models/movieResponse';
 import { FormControl } from '@angular/forms';
 import { StorageService } from '../services/storage/storage.service';

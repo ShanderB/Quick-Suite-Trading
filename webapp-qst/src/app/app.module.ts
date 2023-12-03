@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
-import { ModalComponent } from './modal/movie-info/modal.component';
+import { ModalComponent } from './modal/movie-info/movie-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +21,7 @@ import { InputSearchComponent } from './input/input-search/input-search.componen
 import { InputFilterComponent } from './input/input-filter-type/input-filter.component';
 import { CardComponent } from './card/card.component';
 import { InputFilterYearComponent } from './input/input-filter-year/input-filter-year.component';
+import { WatchListModalComponent } from './modal/watch-list/watch-list.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { InputFilterYearComponent } from './input/input-filter-year/input-filter
     InputSearchComponent,
     InputFilterComponent,
     CardComponent,
-    InputFilterYearComponent
+    InputFilterYearComponent,
+    WatchListModalComponent
   ],
   imports: [
     BrowserModule,

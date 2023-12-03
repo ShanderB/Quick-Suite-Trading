@@ -4,8 +4,8 @@ import { MovieResponse } from '../../models/movieResponse';
 
 @Component({
   selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  templateUrl: './movie-info.component.html',
+  styleUrls: ['./movie-info.component.scss']
 })
 export class ModalComponent implements OnInit {
 
