@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subject, first, map, switchMap, takeUntil } from 'rxjs';
-import { MovieAPI, MovieList } from '../models/filmeAPI';
+import { MovieAPI, MovieList } from '../models/movieAPI';
 import { MovieService } from '../filme.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
-import { MovieResponse } from '../models/filmeResponse';
+import { MovieResponse } from '../models/movieResponse';
 import { FormControl } from '@angular/forms';
 
 @Component({

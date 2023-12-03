@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MovieService } from 'src/app/filme.service';
-import { FilmesTipos } from 'src/app/models/filmesTipos';
+import { FilmesTipos } from 'src/app/models/moviesTypes';
 
 @Component({
   selector: 'app-input-filter-type',

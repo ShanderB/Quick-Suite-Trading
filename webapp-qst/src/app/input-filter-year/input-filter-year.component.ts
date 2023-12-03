@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MovieService } from '../filme.service';
 import { FormControl } from '@angular/forms';
-import { FilmesTipos } from '../models/filmesTipos';
+import { FilmesTipos } from '../models/moviesTypes';
 
 @Component({
   selector: 'app-input-filter-year',

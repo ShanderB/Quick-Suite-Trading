@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 import { environment } from '../environments/environment';
-import { MovieResponse } from './models/filmeResponse';
-import { MovieList } from './models/filmeAPI';
+import { MovieResponse } from './models/movieResponse';
+import { MovieList } from './models/movieAPI';
 
 @Injectable({
   providedIn: 'root'

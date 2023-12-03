@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 
-import { MovieAPI } from './models/filmeAPI';
+import { MovieAPI } from './models/movieAPI';
 
 @Component({
   selector: 'my-app',
