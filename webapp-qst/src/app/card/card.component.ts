@@ -25,7 +25,7 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.storage.clear()
+    // this.storage.clear()
     /* Ao iniciar, ficará olhando o searchBox de título.
        Quando for escrito algo, fará o request puxando os filmes.
        Estou filtrando para remover todos os filmes sem poster para não deixar os cards brancos,
@@ -51,7 +51,7 @@ export class CardComponent implements OnInit {
       });
   }
 
-  onClickWatchList(movieId: MovieAPI) {
+  onClickWatchList(movieId: MovieAPI): void {
     let actualStorage = this.storage.get('watchList')
     
     if(!actualStorage.includes(movieId.imdbID)){
@@ -61,4 +61,8 @@ export class CardComponent implements OnInit {
     }
   }
 
+  isOnWatchlist(movieId: MovieAPI): boolean {
+    if(!this.storage.get('watchList').includes(movieId.imdbID)) return false;
+    return true;
+  }
 }

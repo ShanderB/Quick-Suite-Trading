@@ -5,8 +5,9 @@
       <mat-card-header>
         <mat-card-title>{{ movie.Title }}</mat-card-title>
       </mat-card-header>
-
-      <mat-icon (click)="onClickWatchList(movie)" style="position: absolute; background: lightskyblue;">checklist</mat-icon>
+      
+      <mat-icon title="Add to watchlist" (click)="onClickWatchList(movie)" style="position: absolute; background: lightskyblue;">checklist</mat-icon>
+      <mat-label title="Movie currently on watchlist" *ngIf="isOnWatchlist(movie)" style="margin-left: 29px; background: lightskyblue; position: absolute;">On my watchlist</mat-label>
     </span>
 
     <mat-card-subtitle (click)="onMovieSelected(movie)">
