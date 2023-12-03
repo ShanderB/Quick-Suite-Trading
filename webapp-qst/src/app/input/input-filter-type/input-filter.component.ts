@@ -4,7 +4,7 @@ import { FilmeService } from 'src/app/filme.service';
 import { FilmesTipos } from 'src/app/models/filmesTipos';
 
 @Component({
-  selector: 'app-input-filter',
+  selector: 'app-input-filter-type',
   templateUrl: './input-filter.component.html',
   styleUrls: ['../input.component.scss']
 })
