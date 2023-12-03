@@ -1,5 +1,5 @@
 <mat-form-field class="display-flex-input">
-    <mat-label>Select</mat-label>
+    <mat-label>Type</mat-label>
     <mat-select [formControl]="filterControl">
         <mat-option *ngFor="let tipo of tipos | keyvalue" [value]="tipo.value">
             {{tipo.value}}

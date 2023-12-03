@@ -4,11 +4,12 @@
 
     <!-- SearchBox utilizado para buscar os filmes pelo nome. -->
     <app-input-search [searchControl]="searchControl" [displayClear]="!!filmes$"></app-input-search>
-    
-    <!-- SearchBox utilizado para buscar os filmes passando o tipo como parâmetro. -->
-    <app-input-filter-type [searchControl]="searchControl" [filterControl]="filterTypeControl"></app-input-filter-type>
-
-    <app-input-filter-year  [searchControl]="searchControl" [filterControl]="filterYearControl"></app-input-filter-year>
+    <span style="display: flex;
+    align-items: flex-end;">
+      <!-- SearchBox utilizado para buscar os filmes passando o tipo como parâmetro. -->
+      <app-input-filter-type style="margin-right: 20px;" [searchControl]="searchControl" [filterControl]="filterTypeControl"></app-input-filter-type>
+      <app-input-filter-year  [searchControl]="searchControl" [filterControl]="filterYearControl"></app-input-filter-year>
+    </span>
   </span>
 
   <!-- Responsável por mostrar os cards contendo os filmes. -->

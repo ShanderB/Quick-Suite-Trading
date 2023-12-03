@@ -1,5 +1,5 @@
 export enum FilmesTipos {
-    M = "movie",
-    S = "series",
-    E = "episode"
+    M = "Movie",
+    S = "Series",
+    E = "Episode"
 }
