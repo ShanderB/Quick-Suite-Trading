@@ -1,10 +1,16 @@
 <span class="display-flex-card">
-    <mat-card class="cards display-movie-card-poster" *ngFor="let movie of movies$ | async" mat-raised-button (click)="onMovieSelected(movie)">
+  <mat-card class="cards display-movie-card-poster" *ngFor="let movie of movies$ | async" mat-raised-button>
+    <span style="flex-direction: row;">
+
       <mat-card-header>
         <mat-card-title>{{ movie.Title }}</mat-card-title>
       </mat-card-header>
-      <mat-card-subtitle>
-        <img src="{{ movie.Poster }}">
-      </mat-card-subtitle>
-    </mat-card>
-  </span>
+
+      <mat-icon (click)="onClickWatchList(movie)" style="position: absolute; background: lightskyblue;">checklist</mat-icon>
+    </span>
+
+    <mat-card-subtitle (click)="onMovieSelected(movie)">
+      <img src="{{ movie.Poster }}">
+    </mat-card-subtitle>
+  </mat-card>
+</span>

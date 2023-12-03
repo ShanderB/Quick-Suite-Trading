@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { MovieResponse } from '../models/movieResponse';
 import { FormControl } from '@angular/forms';
+import { StorageService } from '../services/storage/storage.service';
 
 @Component({
   selector: 'app-card',
@@ -19,10 +20,12 @@ export class CardComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private storage: StorageService
   ) { }
 
   ngOnInit(): void {
+    this.storage.clear()
     /* Ao iniciar, ficará olhando o searchBox de título.
        Quando for escrito algo, fará o request puxando os filmes.
        Estou filtrando para remover todos os filmes sem poster para não deixar os cards brancos,
@@ -32,7 +35,7 @@ export class CardComponent implements OnInit {
         takeUntil(this.unsubscribe$),
         switchMap((movieName: string) => this.movieService.fetchMovieListByName(movieName)),
         map((res: MovieList) => res?.Search?.filter(movieName => movieName?.Poster != "N/A"))
-      ); 
+      );
   }
 
   /* Ao clicar no card, é feito o request para abrir
@@ -46,6 +49,16 @@ export class CardComponent implements OnInit {
           data: item
         });
       });
+  }
+
+  onClickWatchList(movieId: MovieAPI) {
+    let actualStorage = this.storage.get('watchList')
+    
+    if(!actualStorage.includes(movieId.imdbID)){
+      this.storage.set('watchList', [...actualStorage, movieId.imdbID])
+    } else {
+      this.storage.set('watchList', actualStorage.filter((item)=> item != movieId.imdbID))
+    }
   }
 
 }
