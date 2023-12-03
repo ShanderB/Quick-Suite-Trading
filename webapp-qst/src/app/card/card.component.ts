@@ -52,17 +52,17 @@ export class CardComponent implements OnInit {
   }
 
   onClickWatchList(movieId: MovieAPI): void {
-    let actualStorage = this.storage.get('watchList')
-    
-    if(!actualStorage.includes(movieId.imdbID)){
-      this.storage.set('watchList', [...actualStorage, movieId.imdbID])
+    let actualStorage = this.storage.get('watchList');
+
+    if(!actualStorage.find((storedMovieId: any) => storedMovieId.imdbID == movieId.imdbID)){
+      this.storage.set('watchList', [...actualStorage, movieId])
     } else {
-      this.storage.set('watchList', actualStorage.filter((item)=> item != movieId.imdbID))
+      this.storage.set('watchList', actualStorage.filter((item: any)=> item.imdbID != movieId.imdbID))
     }
   }
 
   isOnWatchlist(movieId: MovieAPI): boolean {
-    if(!this.storage.get('watchList').includes(movieId.imdbID)) return false;
+    if(!this.storage.get('watchList').find((storedMovieId: any) => storedMovieId.imdbID == movieId.imdbID)) return false;
     return true;
   }
 }
