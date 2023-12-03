@@ -1,12 +1,9 @@
 <ng-container>
-
   <span class="filters-container">
 
-    <!-- SearchBox utilizado para buscar os filmes pelo nome. -->
     <app-input-search [searchControl]="searchControl" [displayClear]="!!filmes$"></app-input-search>
-    <span style="display: flex;
-    align-items: flex-end;">
-      <!-- SearchBox utilizado para buscar os filmes passando o tipo como parâmetro. -->
+
+    <span class="d-flex align-items-end">
       <app-input-filter-type style="margin-right: 20px;" [searchControl]="searchControl"
         [filterControl]="filterTypeControl"></app-input-filter-type>
 
@@ -14,8 +11,8 @@
         [filterControl]="filterYearControl"></app-input-filter-year>
     </span>
 
-    <div style="position: absolute;right: 2%;top: 1%;">
-      <button mat-fab (click)="openWatchList()" color="primary" title="Open watchlist">
+    <div class="position-absolute" style="right: 2%;top: 1%;">
+      <button mat-fab (click)="openWatchList()" color="primary" title="Open watch list">
         <mat-icon>checklist</mat-icon>
       </button>
     </div>

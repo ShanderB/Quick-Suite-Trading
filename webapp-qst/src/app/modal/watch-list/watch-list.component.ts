@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MovieAPI } from 'src/app/models/movieAPI';
 import { StorageService } from 'src/app/services/storage/storage.service';
 
@@ -10,19 +10,13 @@ import { StorageService } from 'src/app/services/storage/storage.service';
 })
 export class WatchListModalComponent implements OnInit {
   watchListedMovies: MovieAPI[];
-  
+
   constructor(
     private dialogRef: MatDialogRef<WatchListModalComponent>,
     private storage: StorageService
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.watchListedMovies = this.storage.get('watchList')
-    console.log(this.watchListedMovies)
   }
-
-  close() {
-    this.dialogRef.close();
-  }
-
 }

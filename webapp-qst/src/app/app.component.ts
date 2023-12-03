@@ -27,7 +27,7 @@ export class AppComponent implements OnDestroy {
     this.unsubscribe$.complete();
   }
 
-  openWatchList(){
+  openWatchList(): void {
     this.dialog.open(WatchListModalComponent);
     console.log('a')
   }
