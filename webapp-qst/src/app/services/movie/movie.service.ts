@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
-import { environment } from '../../environments/environment';
-import { MovieResponse } from '../models/movieResponse';
-import { MovieList } from '../models/movieAPI';
+import { environment } from '../../../environments/environment';
+import { MovieResponse } from '../../models/movieResponse';
+import { MovieList } from '../../models/movieAPI';
 
 @Injectable({
   providedIn: 'root'
@@ -24,16 +24,16 @@ export class MovieService {
 
   constructor(private http: HttpClient) { }
 
-  fetchMovieListByName(nomeFilme: string) {
-    return this.http.get<MovieList>(this.createFetchUrl(nomeFilme));
+  fetchMovieListByName(movieName: string) {
+    return this.http.get<MovieList>(this.createFetchUrl(movieName));
   }
 
-  fetchMovieById(filmeId: string): Observable<MovieResponse>{
-    return this.http.get<MovieResponse>(`${this.url}&i=${filmeId}`);
+  fetchMovieById(movieId: string): Observable<MovieResponse>{
+    return this.http.get<MovieResponse>(`${this.url}&i=${movieId}`);
   }
   
-  private createFetchUrl(nomeFilme: string): string{
-    let urlQuery: string = `${this.url}&s=${nomeFilme}`;
+  private createFetchUrl(movieName: string): string{
+    let urlQuery: string = `${this.url}&s=${movieName}`;
 
     if(this._filterType){
       urlQuery += ('&type='+ this._filterType)
@@ -41,6 +41,7 @@ export class MovieService {
     if(this._filterYear){
       urlQuery += ('&y='+ this._filterYear)
     }
+
     return urlQuery;
   }
 }

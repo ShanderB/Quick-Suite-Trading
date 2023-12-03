@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subject, first, map, switchMap, takeUntil } from 'rxjs';
 import { MovieAPI, MovieList } from '../models/movieAPI';
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../services/movie/movie.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { MovieResponse } from '../models/movieResponse';
