@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MovieService } from '../../filme.service';
+import { MovieService } from '../../services/movie.service';
 import { FormControl } from '@angular/forms';
 import { FilmesTipos } from '../../models/moviesTypes';
 
