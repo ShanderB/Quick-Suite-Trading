@@ -16,7 +16,7 @@ export class StorageService {
     this.storage.setItem(key, JSON.stringify(value));
   }
 
-  get(key: string): string[] {
+  get(key: string): MovieAPI[] {
     if (this.storage.length) {
       return JSON.parse(this.storage.getItem(key)??'');
     }

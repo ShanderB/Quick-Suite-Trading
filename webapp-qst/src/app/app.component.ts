@@ -1,8 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 
 import { MovieAPI } from './models/movieAPI';
+import { MatDialog } from '@angular/material/dialog';
+import { WatchListModalComponent } from './modal/watch-list/watch-list.component';
 
 @Component({
   selector: 'my-app',
@@ -17,6 +19,7 @@ export class AppComponent implements OnDestroy {
   private readonly unsubscribe$ = new Subject<void>();
 
   constructor(
+    private dialog: MatDialog,
   ) { }
 
   ngOnDestroy(): void {
@@ -25,6 +28,7 @@ export class AppComponent implements OnDestroy {
   }
 
   openWatchList(){
+    this.dialog.open(WatchListModalComponent);
     console.log('a')
   }
 }
