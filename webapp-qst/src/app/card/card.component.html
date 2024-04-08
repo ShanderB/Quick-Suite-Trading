@@ -1,16 +1,15 @@
 <span class="display-flex-card">
   <mat-card class="cards display-movie-card-poster" *ngFor="let movie of movies$ | async" mat-raised-button>
-    <span class="flex-row">
+    <span class="flex-row" style="display: flex;">
 
       <mat-card-header>
         <mat-card-title>{{ movie.Title }}</mat-card-title>
       </mat-card-header>
-      
-      <mat-icon title="Add to watchlist" class="position-absolute"  (click)="onClickWatchList(movie)" style="background: lightskyblue;">checklist</mat-icon>
-      <mat-label title="Movie currently on watchlist" class="position-absolute" *ngIf="isOnWatchlist(movie)" style="margin-left: 29px; background: lightskyblue;">On my watchlist</mat-label>
     </span>
 
     <mat-card-subtitle (click)="onMovieSelected(movie)">
+      <mat-icon title="Add to watchlist" class="position-absolute"  (click)="onClickWatchList(movie)" style="background: lightskyblue;">checklist</mat-icon>
+      <mat-label title="Movie currently on watchlist" class="position-absolute" *ngIf="isOnWatchlist(movie)" style="margin-left: 29px; background: lightskyblue;">On my watchlist</mat-label>
       <img src="{{ movie.Poster }}">
     </mat-card-subtitle>
   </mat-card>
