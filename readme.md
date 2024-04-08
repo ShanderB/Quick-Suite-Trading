@@ -14,11 +14,11 @@ Enter the webapp directory
 
 Just install the project:
 
-    npm me
+    npm i
 
 Once finished, start the service:
 
-    npm home
+    npm start
 
 The project will start at the link:
 
